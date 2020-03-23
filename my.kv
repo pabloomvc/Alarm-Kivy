@@ -1,0 +1,84 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+<MainWindow>:
+    name: "main"
+    hora: hora
+    minuto: minuto
+
+    FloatLayout:
+        cols: 1
+        size: root.width, root.height
+
+        Label:
+            size_hint: 1, 0.5
+            pos_hint: {"x":0,"top":1}
+            text: "Alarma"
+            font_size: 70
+        
+        FloatLayout:
+            cols: 2
+            size_hint: 1, 0.5
+            
+            TextInput:
+                id: hora
+                size_hint: 0.29, 0.2
+                pos_hint: {"x":0.2, "y":0.56}
+                multiline: False
+
+            TextInput:
+                id: minuto
+                size_hint: 0.29, 0.2
+                pos_hint: {"x":0.51, "y":0.56}
+                multiline: False
+
+            Button:
+                size_hint: 0.6, 0.2
+                pos_hint: {"x":0.2, "y":0.3}
+                text: "Submit"
+
+                on_release:
+                    app.root.current = "second"
+                    root.manager.transition.direction = "left"                   
+                    root.btn()
+
+<SecondWindow>:
+    name: "second"
+
+    GridLayout:
+        size: root.width, root.height
+        rows:3
+        Label:
+            text: "Buenos Dias!"
+            font_size: 40
+            size_hint: 0.2, 0.4
+            pos_hint: {"x":0.4, "y":0.4}
+
+        GridLayout:
+            cols: 2
+            LoopGrid:
+                size_hint: 0.5,1
+                cols: 2
+
+            GridLayout:
+                size_hint: 0.5,1
+                cols: 1
+                Label:
+                    text: root.weather
+                    font_size: 20
+                Button:
+                    text: "Open Youtube"
+                    on_release: root.open_website("youtube")
+                Button:
+                    text: "Open Instagram"
+                    on_release: root.open_website("instagram")
+
+        Button:
+            size_hint: 0.2, 0.2
+            pos_hint: {"x":0.4, "y":0.4}
+            text: "Press pls"
+
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
