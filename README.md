@@ -12,10 +12,10 @@ A song will play at the time you set the alarm to (otherwise it wouldn't be much
 The song it's currently played is "Finale" by Madeon, but you can replace it by any mp3 file. Make sure to change the value of the variable "song_name" in the main program, though.
 
 To run this project and all its features, you'll need to have installed:
--Kivy
--Webbrowser
--Playsound
--Requests
--BeautifulSoup
+Kivy
+Webbrowser
+Playsound
+Requests
+BeautifulSoup
 
 
